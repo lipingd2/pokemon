@@ -1,0 +1,45 @@
+.container{
+    position: relative;
+    width: 100%;
+}
+.title {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    height: 50px;
+}
+.pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center; /*stretches all cards same height*/
+    justify-content: space-around; /*some space between cards*/
+    margin-top: 40px;
+}
+app-pokemoncard {
+    width: 24%;
+}
+
+@media screen and (max-width: 650px) {
+    app-pokemoncard {
+        width: 77%;
+    }
+    .pokemons{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        row-gap: 40px;
+    }
+}
+
+button {
+    border-radius: 7px;
+    font-size: 20px;
+    padding:10px;
+    position:absolute;
+    bottom:0;
+    right:50px;
+}

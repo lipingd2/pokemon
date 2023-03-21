@@ -1,0 +1,13 @@
+<div class="card" (click) = "getPokemon()">
+    <img src="{{pokemonD.sprites.front_default}}" alt="{{pokemonN}}"
+    [ngStyle] = "{'width': '100%'}">
+    <div class="cardDes">
+        <p> {{pokemonN}}</p>
+        <p> #{{pokemonD.id}}</p>
+        <p>Weight: {{pokemonD.weight}}</p>
+        <p>Height: {{pokemonD.height}}</p>
+        <ul>
+            <li *ngFor="let Ptype of pokemonD.types">{{Ptype.type.name}}</li>
+        </ul>
+    </div>
+</div>

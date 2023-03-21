@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="title">Kanto Pokemon</div>
+    <div class="pokemons"
+        [ngStyle] = "{
+        'justify-content': showselect === true? 'center': 'space-around' }"
+    >
+        <app-pokemoncard *ngFor="let pokemond of pokemonsdetail; let i = index"
+        [pokemonN] = pokemons[i]
+        [pokemonD] = pokemond
+        [index] = i
+        (idemiter) = "comfirmDetail($event)"
+        [ngStyle] = "{'display': Selectpokemon[i] === true ? 'inline': 'none'}"
+        ></app-pokemoncard>
+    </div>
+    <button 
+    [ngStyle] = "{'display': showButton === true? 'inline': 'none'}" 
+    (click) = "chooseAgain()"
+    > Choose Again</button>
+</div>
