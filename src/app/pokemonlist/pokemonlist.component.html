@@ -7,9 +7,8 @@
         <app-pokemoncard *ngFor="let pokemond of pokemonsdetail; let i = index"
         [pokemonN] = pokemons[i]
         [pokemonD] = pokemond
-        [index] = i
         (idemiter) = "comfirmDetail($event)"
-        [ngStyle] = "{'display': Selectpokemon[i] === true ? 'inline': 'none'}"
+        [ngStyle] = "{'display': (Selectpokemon === pokemons[i] && showselect === true) || (showselect !== true) ? 'inline': 'none'}"
         ></app-pokemoncard>
     </div>
     <button 

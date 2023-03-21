@@ -10,13 +10,12 @@ import { PokemonService } from '../services/pokemon.service';
 export class PokemonlistComponent implements OnInit {
   pokemons: string[] = ["bulbasaur", "squirtle", "charmander"];
   pokemonsdetail?: PokemonCardDetail[];
-  Selectpokemon = [true, true, true];
+  Selectpokemon = "";
   showselect: boolean = false;
   showButton: boolean = false;
   ngOnInit(): void {
     this.pokemonservice.pdetails$.subscribe((details: PokemonCardDetail[]) => {
       this.pokemonsdetail = details
-      console.log(this.pokemonsdetail)
     });
 
     for (let p of this.pokemons) {
@@ -29,14 +28,9 @@ export class PokemonlistComponent implements OnInit {
   }
 
   comfirmDetail(detail:comfirmPokemon) { 
-    console.log(detail);
     let p = "Do you want to select " + detail.name + "?"
     if (confirm(p) === true) {
-      for (let i = 0; i < this.Selectpokemon.length; i++) { 
-        if (i !== detail.index) { 
-          this.Selectpokemon[i] = false
-        }
-      }
+      this.Selectpokemon = detail.name
       this.showselect = true
       this.showButton = true
     }
@@ -45,8 +39,5 @@ export class PokemonlistComponent implements OnInit {
   chooseAgain() {
     this.showButton = false
     this.showselect = false
-    for (let i = 0; i < this.Selectpokemon.length; i++) { 
-      this.Selectpokemon[i] = true
-    }
   }
 }

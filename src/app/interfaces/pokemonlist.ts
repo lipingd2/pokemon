@@ -1,7 +1,6 @@
 export interface comfirmPokemon { 
     name: string;
     detail: PokemonCardDetail;
-    index:number
 }
 
 export interface PokemonCardDetail { 

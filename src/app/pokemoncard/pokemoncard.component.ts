@@ -9,8 +9,7 @@ import { PokemonCardDetail } from '../interfaces/pokemonlist';
 export class PokemoncardComponent implements OnInit{
   @Input() pokemonD!: PokemonCardDetail 
   @Input() pokemonN!: string
-  @Input() index!:number
-  @Output() idemiter = new EventEmitter<{name:string, detail:PokemonCardDetail, index:number}>();
+  @Output() idemiter = new EventEmitter<{name:string, detail:PokemonCardDetail}>();
   ngOnInit(): void {
     
   }
@@ -20,6 +19,6 @@ export class PokemoncardComponent implements OnInit{
   }
 
   getPokemon() {
-    this.idemiter.emit({name:this.pokemonN, detail:this.pokemonD, index:this.index})
+    this.idemiter.emit({name:this.pokemonN, detail:this.pokemonD})
   }
 }
